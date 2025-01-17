@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { UserInputComponent } from "./user-input/user-input.component";
 import { InvestmentResultsComponent } from './investment-results/investment-results.component';
-import { InvestmentFormType } from './models/investment';
+import { type InvestmentFormType } from './models/investment.model';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { InvestmentFormType } from './models/investment';
 })
 export class AppComponent {
  investmentFormValues: InvestmentFormType ;
-  constructor() {
+ constructor() {
     this.investmentFormValues = {initialInvestment: 0, annualInvestment: 0, expectedReturn: 0, duration: 0};
   }
  

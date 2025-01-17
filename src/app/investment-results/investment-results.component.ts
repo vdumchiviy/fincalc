@@ -1,7 +1,6 @@
-import { Component, Input, input, computed } from '@angular/core';
-import { InvestmentFormType, InvestmentType } from '../models/investment';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentService } from '../services/investment.service.js';
 
 @Component({
   selector: 'app-investment-results',
@@ -12,36 +11,9 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class InvestmentResultsComponent {
   // @Input({required: true}) formValues!: InvestmentFormType;
+  constructor(private investmentService: InvestmentService) {} 
 
-  formValues = input.required<InvestmentFormType>();
-  investmentResults = computed(()=> this.calculateInvestmentResults());
-
-
-
-
-  calculateInvestmentResults() {
-    const annualData: InvestmentType[] = [];
-    let investmentValue = this.formValues().initialInvestment;
-    
-  
-    for (let i = 0; i < this.formValues().duration; i++) {
-      const year = i + 1;
-      const interestEarnedInYear = investmentValue * (this.formValues().expectedReturn / 100);
-      investmentValue += interestEarnedInYear + this.formValues().annualInvestment;
-      const totalInterest =
-        investmentValue - this.formValues().annualInvestment * year - this.formValues().initialInvestment;
-      annualData.push({
-        year: year,
-        interest: interestEarnedInYear,
-        valueEndOfYear: investmentValue,
-        annualInvestment: this.formValues().annualInvestment,
-        totalInterest: totalInterest,
-        totalAmountInvested: this.formValues().initialInvestment + this.formValues().annualInvestment * year,
-      });
-    }
-  
-    return annualData;
+  get investmentResults() {
+    return this.investmentService.resultData;
   }
-  
-
 }

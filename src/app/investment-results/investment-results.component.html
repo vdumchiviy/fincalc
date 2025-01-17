@@ -1,4 +1,4 @@
-@if (investmentResults().length === 0) {
+@if (investmentResults.length === 0) {
     <p class="center">There are no results! Press the Calculate button!</p>
 } @else {
 
@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        @for (iR of investmentResults(); track iR.totalAmountInvested) {
+        @for (iR of investmentResults; track iR.totalAmountInvested) {
             <tr>
                 <td>{{ iR.year }}</td>
                 <td>{{ iR.annualInvestment }}</td>
