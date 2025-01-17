@@ -1,0 +1,30 @@
+
+    <form (ngSubmit)="onSubmit()">
+        <table>
+            <tr width="100%">
+                <td width="50%">
+                    <label for="initial-investment">Initial Investment, $</label>
+                    <input type="number" name="initial-investment" id="initial-investment" 
+                    min="0" max="100000" step="1000" value="1000" [(ngModel)]="initialInvestment" />
+                </td>
+                <td width="50%">
+                    <label for="annual-investment">Annual Investment, $</label>
+                    <input type="number" name="annual-investment" id="annual-investment" 
+                    min="0" max="100000" step="1000" value="1000" [(ngModel)]="annualInvestment" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="expected-return">Expected Return, %</label>
+                    <input type="number" name="expected-return" id="expected-return" 
+                    min="0" max="100000" step="1" value="100" [(ngModel)]="expectedReturn" />
+                </td>
+                <td>
+                    <label for="duration">Duration, years</label>
+                    <input type="number" name="duration" id="duration" 
+                    min="0" max="10000" step="1" value="10" [(ngModel)]="duration" />
+                </td>
+            </tr>        
+        </table>
+        <button type="submit">Calculate</button>
+    </form>

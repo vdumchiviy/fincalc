@@ -1,1 +1,10 @@
-<h1 class="center">Practice Time!</h1>
+<app-header>
+    <h1 class="center">Practice Time!</h1>
+</app-header>
+<app-user-input (investmentFormValues)="onGotValues($event)">
+    
+</app-user-input>
+
+<app-investment-results [formValues]="investmentFormValues">
+
+</app-investment-results>
