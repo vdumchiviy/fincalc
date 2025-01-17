@@ -1,12 +1,16 @@
+@if (investmentResults().length === 0) {
+    <p class="center">There are no results! Press the Calculate button!</p>
+} @else {
+
 <table>
     <thead>
         <tr>
             <th>Year</th>
             <th>Annual Investment, $</th>
             <th>Total Amount Investment, $</th>
-            <th>Interest, %</th>
+            <th>Interest, $</th>
             <th>Total Interest, $</th>
-            <th>Value EOY, $brb 3 min</th>
+            <th>Value EOY, $</th>
         </tr>
         </thead>
         <tbody>
@@ -15,11 +19,12 @@
                 <td>{{ iR.year }}</td>
                 <td>{{ iR.annualInvestment }}</td>
                 <td>{{ iR.totalAmountInvested }}</td>
-                <td>{{ iR.interest }}</td>
-                <td>{{ iR.totalInterest }}</td>
-                <td>{{ iR.valueEndOfYear }}</td>
+                <td>{{ iR.interest | currency:"USD" }}</td>
+                <td>{{ iR.totalInterest | currency:"USD" }}</td>
+                <td>{{ iR.valueEndOfYear | currency:"USD" }}</td>
             </tr>
         }
         </tbody>
 
 </table>
+}

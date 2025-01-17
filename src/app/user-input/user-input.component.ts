@@ -15,7 +15,7 @@ export class UserInputComponent {
 
   // 2-way-binded variables
   initialInvestment: number = 1000;
-  annualInvestment: number = 500;
+  annualInvestment: number = 200;
   expectedReturn: number = 5;
   duration: number = 10;
 
